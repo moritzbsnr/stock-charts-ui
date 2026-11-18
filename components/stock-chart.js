@@ -70,11 +70,18 @@ class StockChart extends HTMLElement {
     this.chart = createChart(this.chartContainer, { autoSize: true });
     this.serie = this.chart.addSeries(CandlestickSeries);
 
+    // autoSize misst den Container erst etwas später. Damit die Kerzen nicht
+    // auf 0 px gestaucht bleiben, bei jeder Größenänderung neu auf die volle Breite verteilen.
+    this.beobachter = new ResizeObserver(() => this.chart.timeScale().fitContent());
+    this.beobachter.observe(this.chartContainer);
+
     this.aktualisieren();
   }
 
   // Wird aufgerufen, wenn das Element aus der Seite entfernt wird: Chart aufräumen.
   disconnectedCallback() {
+    this.beobachter.disconnect();
+    this.beobachter = null;
     this.chart.remove();
     this.chart = null;
     this.serie = null;
