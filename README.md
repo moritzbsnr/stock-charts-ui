@@ -47,10 +47,6 @@ AI.md                      Dokumentation zum Einsatz von KI
 ES-Module funktionieren nicht über `file://`, deshalb braucht die Seite einen
 lokalen Server, z. B. die VS-Code-Erweiterung **Live Server** oder:
 
-```bash
-npx serve .
-```
-
 ## Einschränkungen (kostenloser Plan)
 
 - 8 API-Anfragen pro Minute, 800 pro Tag
@@ -59,5 +55,5 @@ npx serve .
 ## Geplant
 
 - `<stock-search>`: Eingabefeld, über das man das Symbol wechselt
-- Bessere Fehleranzeige (ungültiges Symbol, Limit erreicht)
+- Bessere Fehleranzeige (z.B. Limit erreicht)
 - Styling über CSS-Variablen, optional Dark Mode
