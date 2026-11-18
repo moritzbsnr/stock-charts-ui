@@ -45,7 +45,7 @@ AI.md                      Dokumentation zum Einsatz von KI
 ## Starten
 
 ES-Module funktionieren nicht über `file://`, deshalb braucht die Seite einen
-lokalen Server, z. B. die VS-Code-Erweiterung **Live Server** oder:
+lokalen Server, z. B. die VS-Code-Erweiterung **Live Server**
 
 ## Einschränkungen (kostenloser Plan)
 
