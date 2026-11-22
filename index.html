@@ -5,13 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stock-Charts-UI</title>
 
-  <!-- Definition von <stock-chart> (als ES-Modul, lädt seine Abhängigkeiten selbst) -->
+  <!-- Definitionen der eigenen Web Components (als ES-Module) -->
+  <script type="module" src="components/stock-search.js"></script>
   <script type="module" src="components/stock-chart.js"></script>
 </head>
 <body>
   <h1>Stock-Charts-UI</h1>
 
-  <!-- Die eigene Web Component: zeigt den Chart für das angegebene Symbol -->
+  <!-- Eingabefeld: meldet das gewählte Symbol per Event "symbol-gewaehlt" -->
+  <stock-search value="AAPL"></stock-search>
+
+  <!-- Chart: zeigt den Kursverlauf für das Symbol im Attribut "symbol" -->
   <stock-chart symbol="AAPL"></stock-chart>
+
+  <script type="module">
+    // Die beiden Komponenten kennen sich nicht. Die Seite verbindet sie:
+    // Wird ein Symbol gewählt, setzt sie es als Attribut am Chart.
+    const chart = document.querySelector('stock-chart');
+
+    document.querySelector('stock-search').addEventListener('symbol-gewaehlt', (event) => {
+      chart.setAttribute('symbol', event.detail.symbol);
+    });
+  </script>
 </body>
 </html>
