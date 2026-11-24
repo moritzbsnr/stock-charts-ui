@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stock-Charts-UI</title>
 
+  <style>
+    /* Theme: Die Komponenten lesen diese CSS-Variablen. CSS-Variablen werden
+       auch ins Shadow DOM vererbt, deshalb reicht es, sie hier festzulegen. */
+    :root {
+      color-scheme: dark;
+      --seite-hintergrund: #0a0a0f;
+      --chart-hintergrund: #000;
+      --chart-rahmen: #1f1f2b;
+      --chart-text: #e5e5ef;
+      --chart-beschriftung: #a1a1b5;
+      --chart-linie: #7c3aed;
+      --chart-flaeche-oben: rgba(124, 58, 237, 0.55);
+      --chart-flaeche-unten: rgba(124, 58, 237, 0.02);
+      --chart-fadenkreuz: #4b4b63;
+      --chart-fehler: #f87171;
+    }
+
+    body {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      background: var(--seite-hintergrund);
+      color: var(--chart-text);
+      font-family: system-ui, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 1.25rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    stock-search {
+      margin-bottom: 1rem;
+    }
+  </style>
+
   <!-- Definitionen der eigenen Web Components (als ES-Module) -->
   <script type="module" src="components/stock-search.js"></script>
   <script type="module" src="components/stock-chart.js"></script>

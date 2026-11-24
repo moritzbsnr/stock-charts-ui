@@ -16,9 +16,10 @@ class StockSearch extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `
       <style>
+        /* Farben aus denselben CSS-Variablen wie <stock-chart>. */
         :host {
           display: block;
-          font-family: sans-serif;
+          font-family: system-ui, sans-serif;
         }
         form {
           display: flex;
@@ -27,14 +28,41 @@ class StockSearch extends HTMLElement {
         input {
           flex: 1;
           max-width: 12rem;
-          padding: 0.4rem 0.6rem;
+          padding: 0.55rem 0.8rem;
+          border: 1px solid var(--chart-rahmen, #1f1f2b);
+          border-radius: 8px;
+          background: var(--chart-hintergrund, #000);
+          color: var(--chart-text, #e5e5ef);
           font: inherit;
           text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+        input::placeholder {
+          color: var(--chart-beschriftung, #a1a1b5);
+          text-transform: none;
+          letter-spacing: normal;
+        }
+        input:focus {
+          outline: none;
+          border-color: var(--chart-linie, #7c3aed);
+          box-shadow: 0 0 0 3px var(--chart-flaeche-oben, rgba(124, 58, 237, 0.55));
         }
         button {
-          padding: 0.4rem 0.9rem;
+          padding: 0.55rem 1.1rem;
+          border: none;
+          border-radius: 8px;
+          background: var(--chart-linie, #7c3aed);
+          color: #fff;
           font: inherit;
+          font-weight: 600;
           cursor: pointer;
+        }
+        button:hover {
+          filter: brightness(1.15);
+        }
+        button:focus-visible {
+          outline: 2px solid var(--chart-text, #e5e5ef);
+          outline-offset: 2px;
         }
       </style>
       <form>

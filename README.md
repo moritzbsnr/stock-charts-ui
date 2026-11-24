@@ -1,7 +1,7 @@
 # Stock-Charts-UI
 
 Seminarprojekt Web-Komponenten: Eine Web Component zeigt den Kursverlauf einer
-Aktie der letzten 30 Tage als Candlestick-Chart.
+Aktie der letzten 30 Tage als Flächen-Chart im dunklen Design.
 
 ## Aktueller Stand
 
@@ -35,6 +35,27 @@ Aktie der letzten 30 Tage als Candlestick-Chart.
 |---|---|
 | `value` | Startwert im Eingabefeld (optional). |
 | `symbol-gewaehlt` | Event beim Absenden (Enter oder Button). Das Symbol steht groß geschrieben in `event.detail.symbol`. |
+
+### Theme über CSS-Variablen
+
+Beide Komponenten lesen ihre Farben aus CSS-Variablen. CSS-Variablen werden ins
+Shadow DOM vererbt, deshalb kann die Seite das Aussehen von außen ändern, ohne
+die Komponenten anzufassen. Das aktuelle dunkle Theme mit Violett steht in
+`index.html`. Ohne Angaben verwenden die Komponenten dieselben Farben als Vorgabe.
+
+| Variable | Wirkung |
+|---|---|
+| `--chart-hintergrund` | Hintergrund von Chart und Eingabefeld |
+| `--chart-rahmen` | Rahmenfarbe |
+| `--chart-text` | Textfarbe |
+| `--chart-beschriftung` | Achsenbeschriftung und Platzhalter |
+| `--chart-linie` | Kurslinie, Button und Preisschild |
+| `--chart-flaeche-oben` / `--chart-flaeche-unten` | Farbverlauf unter der Linie |
+| `--chart-fadenkreuz` | Fadenkreuz beim Überfahren mit der Maus |
+| `--chart-fehler` | Fehlermeldungen |
+
+Die Chart-Farben werden beim Einfügen des Elements gelesen. Eine spätere Änderung
+der Variablen wirkt sich auf den Chart erst nach dem Neuladen der Seite aus.
 
 ## Technik
 
@@ -75,4 +96,4 @@ lokalen Server, z. B. die VS-Code-Erweiterung **Live Server**
 ## Geplant
 
 - Bessere Fehleranzeige (z.B. Limit erreicht)
-- Styling über CSS-Variablen, optional Dark Mode
+- Optional ein helles Theme
